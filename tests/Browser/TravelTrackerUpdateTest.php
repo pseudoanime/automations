@@ -21,7 +21,7 @@ class TravelTrackerUpdateTest extends DuskTestCase
                 ->type("password", env("TRAVEL_TRACKER_PASSWORD"))
                 ->press('Login')
                 ->waitForText('My Journeys')
-                ->select('#selectedJourney', "1")
+                ->select('#selectedJourney', "2")
                 ->press("Insert into every journey this week");
         });
     }

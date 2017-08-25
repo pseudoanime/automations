@@ -16,10 +16,14 @@ class renewLibraryBooksTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-
             $browser->visit("https://capitadiscovery.co.uk/gloslibraries/login")
-                    ->assertSee('Online Library')
-                    ->type('barcode', '7704357833')
+                    ->assertSee('Online Library');
+
+            if ($browser->element('#prefix-overlay-header > button')) {
+                $browser->press("No thanks");
+            }
+
+            $browser->type('barcode', '7704357833')
                     ->type('pin', env('GLO_LIB_PIN'))
                     ->press('Login');
 
