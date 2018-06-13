@@ -22,12 +22,13 @@ class dorsetCrealsTokensTest extends DuskTestCase
                     ->clickLink('login to play')
                     ->type('user_login', env('DORSET_USERNAME'))
                     ->click('#tokens-login-email-button')
-                    ->pause(1000)
+                    ->waitForText('Password')
                     ->type('user_password', env('DORSET_PASS'))
                     ->click('#tokens-login-password-button')
                     ->waitForText('hi Lakshmi')
-                    ->click('img[src="https://dn3p03babliv5.cloudfront.net/app/uploads/wideimage/90ef5c82e0babf2f261654c5bcd1b2fc.png"]')
-                    ->pause(100000);
+                    ->click('img[alt="play spin"]')
+                    ->pause(100);
+                ;
             });
         }
 
