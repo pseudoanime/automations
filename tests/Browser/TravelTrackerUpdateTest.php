@@ -6,12 +6,19 @@ use Facebook\WebDriver\WebDriverBy;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
+/**
+ * Class TravelTrackerUpdateTest
+ *
+ * @package Tests\Browser
+ */
 class TravelTrackerUpdateTest extends DuskTestCase
 {
+
     /**
-     * A Dusk test example.
+     * testExample
      *
-     * @return void
+     * @throws \Exception
+     * @throws \Throwable
      */
     public function testExample()
     {

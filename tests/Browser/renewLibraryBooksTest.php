@@ -6,14 +6,21 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+/**
+ * Class renewLibraryBooksTest
+ *
+ * @package Tests\Browser
+ */
 class renewLibraryBooksTest extends DuskTestCase
 {
+
     /**
-     * A Dusk test example.
+     * testRenew
      *
-     * @return void
+     * @throws \Exception
+     * @throws \Throwable
      */
-    public function testExample()
+    public function testRenew()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit("https://capitadiscovery.co.uk/gloslibraries/login")

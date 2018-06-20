@@ -2,21 +2,25 @@
 
 namespace Tests\Browser;
 
-use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\DuskTestCase;
 
+/**
+ * Class dorsetCrealsTokensTest
+ *
+ * @package Tests\Browser
+ */
 class dorsetCrealsTokensTest extends DuskTestCase
 {
     /**
-     * A Dusk test example.
+     * test_play_token
      *
-     * @return void
+     * @dataProvider callProvider
+     * @throws \Throwable
      */
     public function test_play_token()
     {
-        for ($i = 0; $i < 3; $i++) {
-
+        try {
             $this->browse(function (Browser $browser) {
                 $browser->visit('https://www.dorsetcereals.co.uk/collect-and-win/spin-to-win/')
                     ->clickLink('login to play')
@@ -28,9 +32,24 @@ class dorsetCrealsTokensTest extends DuskTestCase
                     ->waitForText('hi Lakshmi')
                     ->click('img[alt="play spin"]')
                     ->pause(100);
-                ;
             });
+        } catch (\Exception $e) {
+            
         }
 
+    }
+
+    /**
+     * callProvider
+     *
+     * @return array
+     */
+    public function callProvider()
+    {
+        return [
+            [],
+            [],
+            []
+        ];
     }
 }
