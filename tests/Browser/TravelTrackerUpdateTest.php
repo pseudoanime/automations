@@ -38,12 +38,17 @@ class TravelTrackerUpdateTest extends DuskTestCase
                 $response = $browser->visit("https://travel-tracker.net/app/132/user/missingjourneys")
                     ->waitForText('Save');
 
+                var_dump(count($response->elements('select')));
+
                 for ($i = 1; $i <= $response->elements('select'); $i++) {
                     $dropdown = $browser->driver->findElement(WebDriverBy::xpath("(//select)[$i]"));
                     $action = $browser->driver->action();
                     $action->click($dropdown)
                         ->sendKeys($dropdown, "W")
                         ->perform();
+                    if ($i == count($response->elements('select'))) {
+                        break;
+                    }
                 }
 
                 $browser->press("Save")
